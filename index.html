@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monastirev</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__wrapper">
+        <div class="header__first">
+          <div class="header__first-left">
+            <a class="logo">
+              <img src="./img/logo.png" alt="logo" />
+            </a>
+            <div class="location__dropdown">
+              <button onclick="locationDropdown()" class="location animated">
+                <span>Владивосток</span> &nbsp;<img
+                  src="./img/arrow.png"
+                  alt="arrow"
+                />
+              </button>
+              <div class="location__dropdown-content">
+                <button onclick="closeLocation()">
+                  <svg
+                    class="location-close"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.40864 5.99915L11.7045 1.71268C11.8926 1.52453 11.9983 1.26935 11.9983 1.00326C11.9983 0.737183 11.8926 0.481998 11.7045 0.29385C11.5164 0.105701 11.2612 0 10.9952 0C10.7291 0 10.474 0.105701 10.2859 0.29385L6 4.59031L1.71414 0.29385C1.52602 0.105701 1.27087 -1.98247e-09 1.00483 0C0.738783 1.98247e-09 0.483635 0.105701 0.295513 0.29385C0.107391 0.481998 0.00170495 0.737183 0.00170495 1.00326C0.00170495 1.26935 0.107391 1.52453 0.295513 1.71268L4.59136 5.99915L0.295513 10.2856C0.201875 10.3785 0.127553 10.489 0.0768329 10.6108C0.0261132 10.7325 0 10.8631 0 10.995C0 11.1269 0.0261132 11.2575 0.0768329 11.3793C0.127553 11.501 0.201875 11.6116 0.295513 11.7044C0.388386 11.7981 0.49888 11.8724 0.620622 11.9232C0.742363 11.9739 0.872943 12 1.00483 12C1.13671 12 1.26729 11.9739 1.38903 11.9232C1.51077 11.8724 1.62127 11.7981 1.71414 11.7044L6 7.40799L10.2859 11.7044C10.3787 11.7981 10.4892 11.8724 10.611 11.9232C10.7327 11.9739 10.8633 12 10.9952 12C11.1271 12 11.2576 11.9739 11.3794 11.9232C11.5011 11.8724 11.6116 11.7981 11.7045 11.7044C11.7981 11.6116 11.8724 11.501 11.9232 11.3793C11.9739 11.2575 12 11.1269 12 10.995C12 10.8631 11.9739 10.7325 11.9232 10.6108C11.8724 10.489 11.7981 10.3785 11.7045 10.2856L7.40864 5.99915Z"
+                      fill="#8F8F8F"
+                    />
+                  </svg>
+                </button>
+                <div>Информация о доставке будет отображаться для региона:</div>
+                <div>Владивосток</div>
+                <button onclick="closeLocation()">Да, выбрать</button>
+                <button onclick="cityDropdown()">
+                  Нет, выбрать другой город
+                </button>
+              </div>
+              <div class="city__dropdown-content">
+                <button onclick="closeCity()">
+                  <svg
+                    class="location-close"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.40864 5.99915L11.7045 1.71268C11.8926 1.52453 11.9983 1.26935 11.9983 1.00326C11.9983 0.737183 11.8926 0.481998 11.7045 0.29385C11.5164 0.105701 11.2612 0 10.9952 0C10.7291 0 10.474 0.105701 10.2859 0.29385L6 4.59031L1.71414 0.29385C1.52602 0.105701 1.27087 -1.98247e-09 1.00483 0C0.738783 1.98247e-09 0.483635 0.105701 0.295513 0.29385C0.107391 0.481998 0.00170495 0.737183 0.00170495 1.00326C0.00170495 1.26935 0.107391 1.52453 0.295513 1.71268L4.59136 5.99915L0.295513 10.2856C0.201875 10.3785 0.127553 10.489 0.0768329 10.6108C0.0261132 10.7325 0 10.8631 0 10.995C0 11.1269 0.0261132 11.2575 0.0768329 11.3793C0.127553 11.501 0.201875 11.6116 0.295513 11.7044C0.388386 11.7981 0.49888 11.8724 0.620622 11.9232C0.742363 11.9739 0.872943 12 1.00483 12C1.13671 12 1.26729 11.9739 1.38903 11.9232C1.51077 11.8724 1.62127 11.7981 1.71414 11.7044L6 7.40799L10.2859 11.7044C10.3787 11.7981 10.4892 11.8724 10.611 11.9232C10.7327 11.9739 10.8633 12 10.9952 12C11.1271 12 11.2576 11.9739 11.3794 11.9232C11.5011 11.8724 11.6116 11.7981 11.7045 11.7044C11.7981 11.6116 11.8724 11.501 11.9232 11.3793C11.9739 11.2575 12 11.1269 12 10.995C12 10.8631 11.9739 10.7325 11.9232 10.6108C11.8724 10.489 11.7981 10.3785 11.7045 10.2856L7.40864 5.99915Z"
+                      fill="#8F8F8F"
+                    />
+                  </svg>
+                </button>
+                <div class="city__head">Выберите город</div>
+                <div class="cities">
+                  <div class="cities__left">
+                    <div>
+                      <span class="animated">Владивосток</span>
+                      <span>12 аптек</span>
+                    </div>
+                    <div>
+                      <span class="animated">Де-Фриз</span>
+                      <span>12 аптек</span>
+                    </div>
+                    <div>
+                      <span class="animated">Арсеньев</span>
+                      <span>12 аптек</span>
+                    </div>
+                    <div>
+                      <span class="animated">Артем</span> <span>12 аптек</span>
+                    </div>
+                    <div>
+                      <span class="animated">Большой Камень</span>
+                      <span>12 аптек</span>
+                    </div>
+                    <div>
+                      <span class="animated">Вольно-Надеждинское</span>
+                      <span>12 аптек</span>
+                    </div>
+                    <div>
+                      <span class="animated">Врангель</span>
+                      <span>12 аптек</span>
+                    </div>
+                  </div>
+                  <div class="cities__mid">
+                    <div>
+                      <span class="animated">Дальнегорск</span>
+                      <span>12 аптек</span>
+                    </div>
+                    <div>
+                      <span class="animated">Находка</span>
+                      <span>12 аптек</span>
+                    </div>
+                    <div>
+                      <span class="animated">Сибирцево</span>
+                      <span>12 аптек</span>
+                    </div>
+                    <div>
+                      <span class="animated">Славянка</span>
+                      <span>12 аптек</span>
+                    </div>
+                    <div>
+                      <span class="animated">Спасск-Дальний</span>
+                      <span>12 аптек</span>
+                    </div>
+                    <div>
+                      <span class="animated">Уссурийск</span>
+                      <span>12 аптек</span>
+                    </div>
+                  </div>
+                  <div class="cities__right">
+                    <div>
+                      <span class="animated">Москва</span> <span>12 аптек</span>
+                    </div>
+                    <div>
+                      <span class="animated">Новосибирск</span>
+                      <span>12 аптек</span>
+                    </div>
+                    <div>
+                      <span class="animated">Хабаровск</span>
+                      <span>12 аптек</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header__first-mid">
+            <a class="animated">Адреса аптек</a>
+            <a class="animated">Доставка</a>
+            <a class="animated">О нас</a>
+            <a class="animated">Акции</a>
+          </div>
+          <div class="header__first-right">
+            <a>
+              <div>
+                <span>Версия для слабовидящих</span>
+                <img src="./img/eye.png" alt="eye" />
+              </div>
+            </a>
+            <a class="phone"> 8 800 707 77 33 </a>
+          </div>
+        </div>
+        <div class="header__second">
+          <div class="menu__dropdown">
+            <div onclick="menuOpen()" class="menu__dropbtn">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="menu__dropdown-content">
+              <button onclick="closeMenu()">
+                <svg
+                  class="location-close"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7.40864 5.99915L11.7045 1.71268C11.8926 1.52453 11.9983 1.26935 11.9983 1.00326C11.9983 0.737183 11.8926 0.481998 11.7045 0.29385C11.5164 0.105701 11.2612 0 10.9952 0C10.7291 0 10.474 0.105701 10.2859 0.29385L6 4.59031L1.71414 0.29385C1.52602 0.105701 1.27087 -1.98247e-09 1.00483 0C0.738783 1.98247e-09 0.483635 0.105701 0.295513 0.29385C0.107391 0.481998 0.00170495 0.737183 0.00170495 1.00326C0.00170495 1.26935 0.107391 1.52453 0.295513 1.71268L4.59136 5.99915L0.295513 10.2856C0.201875 10.3785 0.127553 10.489 0.0768329 10.6108C0.0261132 10.7325 0 10.8631 0 10.995C0 11.1269 0.0261132 11.2575 0.0768329 11.3793C0.127553 11.501 0.201875 11.6116 0.295513 11.7044C0.388386 11.7981 0.49888 11.8724 0.620622 11.9232C0.742363 11.9739 0.872943 12 1.00483 12C1.13671 12 1.26729 11.9739 1.38903 11.9232C1.51077 11.8724 1.62127 11.7981 1.71414 11.7044L6 7.40799L10.2859 11.7044C10.3787 11.7981 10.4892 11.8724 10.611 11.9232C10.7327 11.9739 10.8633 12 10.9952 12C11.1271 12 11.2576 11.9739 11.3794 11.9232C11.5011 11.8724 11.6116 11.7981 11.7045 11.7044C11.7981 11.6116 11.8724 11.501 11.9232 11.3793C11.9739 11.2575 12 11.1269 12 10.995C12 10.8631 11.9739 10.7325 11.9232 10.6108C11.8724 10.489 11.7981 10.3785 11.7045 10.2856L7.40864 5.99915Z"
+                    fill="#8F8F8F"
+                  />
+                </svg>
+              </button>
+              <div>
+                <a
+                  ><img src="./img/user.png" alt="user" /><span
+                    >Профиль</span
+                  ></a
+                >
+                <a
+                  ><img src="./img/favorite.png" alt="user" /><span
+                    >Избранное</span
+                  ></a
+                >
+                <a  onclick="locationDropdown()"
+                  ><img src="./img/location.png" alt="user" /><span
+                    >Владивосток</span
+                  ></a
+                >
+              </div>
+              <div>
+                <a>Адреса аптек</a>
+                <a>Доставка</a>
+                <a>О нас</a>
+                <a>Акции</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog__dropdown">
+            <button onclick="catalogDropdown()" class="catalog__dropbtn">
+              <img src="./img/catalog.png" alt="catalog" />
+              <span>Каталог <span>товаров</span></span>
+            </button>
+            <div class="catalog__dropdown-content">
+              <div class="catalog__dropbtn-mobile">
+                <div onclick="catalogDropdownMobile()">
+                  <img src="./img/catalog-mobile.png" alt="catalog" />
+                  <span>Каталог</span>&nbsp;
+                  <svg
+                    class="arrow-down"
+                    width="14"
+                    height="8"
+                    viewBox="0 0 14 8"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 5.58579L1.70711 0.292893C1.31658 -0.0976316 0.683417 -0.0976317 0.292893 0.292893C-0.0976305 0.683417 -0.0976306 1.31658 0.292893 1.70711L6.29289 7.70711C6.68342 8.09763 7.31658 8.09763 7.70711 7.70711L13.7071 1.70711C14.0976 1.31658 14.0976 0.683418 13.7071 0.292893C13.3166 -0.0976311 12.6834 -0.0976311 12.2929 0.292893L7 5.58579Z"
+                      fill="#979797"
+                    />
+                  </svg>
+                  <svg
+                    class="arrow-up"
+                    width="14"
+                    height="8"
+                    viewBox="0 0 14 8"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 2.41421L12.2929 7.70711C12.6834 8.09763 13.3166 8.09763 13.7071 7.70711C14.0976 7.31658 14.0976 6.68342 13.7071 6.29289L7.70711 0.292892C7.31658 -0.0976318 6.68342 -0.0976317 6.29289 0.292892L0.292893 6.29289C-0.0976311 6.68342 -0.0976311 7.31658 0.292893 7.70711C0.683418 8.09763 1.31658 8.09763 1.70711 7.70711L7 2.41421Z"
+                      fill="#979797"
+                    />
+                  </svg>
+                  <div onclick="closeCatalog()">
+                    <svg
+                      class="catalog-close"
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.40864 5.99915L11.7045 1.71268C11.8926 1.52453 11.9983 1.26935 11.9983 1.00326C11.9983 0.737183 11.8926 0.481998 11.7045 0.29385C11.5164 0.105701 11.2612 0 10.9952 0C10.7291 0 10.474 0.105701 10.2859 0.29385L6 4.59031L1.71414 0.29385C1.52602 0.105701 1.27087 -1.98247e-09 1.00483 0C0.738783 1.98247e-09 0.483635 0.105701 0.295513 0.29385C0.107391 0.481998 0.00170495 0.737183 0.00170495 1.00326C0.00170495 1.26935 0.107391 1.52453 0.295513 1.71268L4.59136 5.99915L0.295513 10.2856C0.201875 10.3785 0.127553 10.489 0.0768329 10.6108C0.0261132 10.7325 0 10.8631 0 10.995C0 11.1269 0.0261132 11.2575 0.0768329 11.3793C0.127553 11.501 0.201875 11.6116 0.295513 11.7044C0.388386 11.7981 0.49888 11.8724 0.620622 11.9232C0.742363 11.9739 0.872943 12 1.00483 12C1.13671 12 1.26729 11.9739 1.38903 11.9232C1.51077 11.8724 1.62127 11.7981 1.71414 11.7044L6 7.40799L10.2859 11.7044C10.3787 11.7981 10.4892 11.8724 10.611 11.9232C10.7327 11.9739 10.8633 12 10.9952 12C11.1271 12 11.2576 11.9739 11.3794 11.9232C11.5011 11.8724 11.6116 11.7981 11.7045 11.7044C11.7981 11.6116 11.8724 11.501 11.9232 11.3793C11.9739 11.2575 12 11.1269 12 10.995C12 10.8631 11.9739 10.7325 11.9232 10.6108C11.8724 10.489 11.7981 10.3785 11.7045 10.2856L7.40864 5.99915Z"
+                        fill="#8F8F8F"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="catalog__dropdown-content-mobile">
+                <div class="catalog__dropdown-content-top">
+                  <div class="categories">категории</div>
+                  <div class="brand">бренд</div>
+                </div>
+                <div>
+                  <div class="catalog__dropdown-content-mobile-line">
+                    <div>
+                      <img src="./img/pharmacy.png" alt="pharmacy" /><span
+                        >Аптечные товары</span
+                      >
+                    </div>
+                    <img src="./img/arrow-right.png" alt="arrow-right" />
+                  </div>
+                  <div class="catalog__dropright-content">
+                    <a>БАДы и Витамины</a>
+                    <a>Косметические средства с лечебным эффектом</a>
+                    <a>Лекарственные препараты</a>
+                    <a>Лечебное и диетическое питание</a>
+                    <a>Медицинские изделия</a>
+                    <a>Минеральные воды</a>
+                    <a>Спортивное питание</a>
+                    <a>Для здоровья</a>
+                  </div>
+                </div>
+                <div class="catalog__dropdown-content-mobile-line">
+                  <div>
+                    <img src="./img/home&family.png" alt="home&family" /><span
+                      >Для дома и семьи</span
+                    >
+                  </div>
+                  <img src="./img/arrow-right.png" alt="arrow-right" />
+                </div>
+                <div class="catalog__dropdown-content-mobile-line">
+                  <div>
+                    <img src="./img/health-food.png" alt="health-food" /><span
+                      >Здоровое питание</span
+                    >
+                  </div>
+                  <img src="./img/arrow-right.png" alt="arrow-right" />
+                </div>
+                <div class="catalog__dropdown-content-mobile-line">
+                  <div>
+                    <img src="./img/mom&child.png" alt="mom&child" /><span
+                      >Мама и малыш</span
+                    >
+                  </div>
+                  <img src="./img/arrow-right.png" alt="arrow-right" />
+                </div>
+                <div class="catalog__dropdown-content-mobile-line">
+                  <div>
+                    <img src="./img/optics.png" alt="optics" /><span
+                      >Оптика</span
+                    >
+                  </div>
+                  <img src="./img/arrow-right.png" alt="arrow-right" />
+                </div>
+                <div class="catalog__dropdown-content-mobile-line">
+                  <div>
+                    <img src="./img/cosmetic.png" alt="cosmetic" /><span
+                      >Косметика</span
+                    >
+                  </div>
+                  <img src="./img/arrow-right.png" alt="arrow-right" />
+                </div>
+                <div class="catalog__dropdown-content-mobile-line">
+                  <div>
+                    <img
+                      src="./img/medical-devices.png"
+                      alt="medical-devices"
+                    /><span>Медицинские приборы</span>
+                  </div>
+                  <img src="./img/arrow-right.png" alt="arrow-right" />
+                </div>
+                <div class="catalog__dropdown-content-mobile-line">
+                  <div>
+                    <img src="./img/discounts.png" alt="discounts" /><span
+                      >Скидки</span
+                    >
+                  </div>
+                  <img src="./img/arrow-right.png" alt="arrow-right" />
+                </div>
+              </div>
+              <div class="menu__dropdown-content-mobile">
+                <div>
+                  <a
+                    ><img src="./img/user.png" alt="user" /><span
+                      >Профиль</span
+                    ></a
+                  >
+                  <a
+                    ><img src="./img/favorite.png" alt="user" /><span
+                      >Избранное</span
+                    ></a
+                  >
+                  <a onclick="locationDropdown()"
+                    ><img src="./img/location.png" alt="user" /><span
+                      >Владивосток</span
+                    ></a
+                  >
+                </div>
+                <div>
+                  <a>Адреса аптек</a>
+                  <a>Доставка</a>
+                  <a>О нас</a>
+                  <a>Акции</a>
+                  <a
+                    ><img src="./img/phone.png" alt="phone" /><span
+                      >8 800 707 77 33</span
+                    ></a
+                  >
+                  <img class="apple" src="./img/apple.png" alt="apple" />
+                  <img class="google" src="./img/google.png" alt="google" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="search-container">
+            <input
+              type="text"
+              placeholder="Средство, действующее вещество, проблема"
+              name="search"
+            />
+            <button>
+              <img src="./img/search.png" alt="search" />
+            </button>
+          </div>
+          <a class="logo">
+            <img src="./img/logo.png" alt="logo" />
+          </a>
+          <a class="user">
+            <img src="./img/user.png" alt="user" />
+            <div>
+              <div class="animated">Константин</div>
+              <div>Ваш профиль</div>
+            </div>
+          </a>
+          <a class="favorite">
+            <img src="./img/favorite.png" alt="favorite" />
+          </a>
+          <a class="cart">
+            <p class="cart__sum">13</p>
+            <img src="./img/shopcart.png" alt="shopping-cart" />
+          </a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="main__inner">
+        <div class="main__inner-wrapper">
+          <svg
+            width="16"
+            height="27"
+            viewBox="0 0 16 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.62692 13.5756L14.7716 3.56613C15.5201 2.8276 15.5201 1.63022 14.7716 0.891691C14.0231 0.153166 12.8096 0.153166 12.0611 0.891691L0.561052 12.2384C-0.187454 12.9769 -0.187453 14.1743 0.561052 14.9128L12.0611 26.2595C12.8096 26.998 14.0231 26.998 14.7716 26.2595C15.5201 25.5209 15.5201 24.3236 14.7716 23.585L4.62692 13.5756Z"
+              fill="white"
+            />
+          </svg>
+          <svg
+            width="16"
+            height="27"
+            viewBox="0 0 16 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.7061 13.4111L0.561379 23.4206C-0.187126 24.1591 -0.187126 25.3565 0.561379 26.095C1.30988 26.8335 2.52345 26.8335 3.27195 26.095L14.772 14.7483C15.5205 14.0098 15.5205 12.8124 14.772 12.0739L3.27195 0.727234C2.52345 -0.0112914 1.30988 -0.0112914 0.561379 0.727234C-0.187126 1.46576 -0.187126 2.66314 0.561379 3.40167L10.7061 13.4111Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+        <div class="main__more">
+          <div>Подробнее</div>
+          <div></div>
+          <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
